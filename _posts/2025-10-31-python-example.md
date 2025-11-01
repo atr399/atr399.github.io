@@ -1,0 +1,66 @@
+---
+layout: post
+title: "Python-Day4-Practice"
+date: 2025-10-31
+---
+
+# Reverse Linked List (LeetCode 206) – Adapted to "Reverse Traceroute Path in Linked List Representation"
+
+## Problem Description (Theory & Real-World Usage):
+Given the head of a singly linked list representing a traceroute path (each node is a hop with IP/value), reverse it and return the new head. Theory: Linked lists use nodes with val/next pointers—efficient for insertions/deletions (O(1) vs. O(n) in arrays). Iterative reversal flips pointers in O(n) time/O(1) space; recursive uses call stack for O(n) space but elegant for nesting. Constraints (n<=1000) suit recursion; in production, iteration avoids stack overflows. Real-world: Traceroute paths are linear; reversing simulates return paths in asymmetric routing (e.g., detect loops/mismatches). In SRE at Tesla/xAI, reverse paths for AI traffic analysis (e.g., optimize ML data flows); at Google/Meta, automate SDN path reprogramming
+### 🧩 Example Input/Output
+
+```python
+Input: head = [ "10.0.0.1" → "192.168.1.1" → "8.8.8.8" ] (hops)
+Output: [ "8.8.8.8" → "192.168.1.1" → "10.0.0.1" ]
+```
+
+Solution Code:
+
+```python
+class ListNode:
+    def __init__(self, val=None, next=None):
+        self.val = val
+        self.next = next
+
+def reverse_path_iterative(head):
+    prev, curr = None, head
+    
+    while curr:
+        next_temp = curr.next
+        curr.next = prev
+        prev = curr
+        curr = next_temp
+    return prev
+```
+
+### 🧩 Example usage
+
+```python
+hop1 = ListNode("10.0.0.1")
+hop2 = ListNode("192.168.1.1")
+hop3 = ListNode("8.8.8.8")
+hop1.next = hop2
+hop2.next = hop3
+reversed_head = reverse_path_iterative(hop1)
+# Print reversed: 8.8.8.8 -> 192.168.1.1 -> 10.0.0.1
+```
+Solution Code (Recursive):
+
+```python
+def reverse_path_recursive(head):
+    if not head:
+        return None
+    new_head = head
+    if head.next:
+        new_head = reverse_path_recursive(head.next)
+        head.next.next = head
+        head.next = None
+    return new_head
+```
+
+### 🧩 Example usage (same nodes as above)
+
+```python
+reversed_head = reverse_path_recursive(hop1)
+```
