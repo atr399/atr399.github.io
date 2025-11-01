@@ -1,22 +1,31 @@
 ---
 ---
-// This centers the name, tagline, and bio text inside the sidebar
-.sidebar-panel {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 15px 0;
-}
 
-// Ensure the avatar container is centered
-.avatar-container {
-  display: block;
-  margin: 0 auto 10px;
-}
-
-// Ensure name and tagline are also centered
+// Target the main container that holds the avatar, name, and tagline.
+// Use !important to override the theme's default text alignment.
 .sidebar-panel-text {
-  text-align: center;
+  text-align: center !important;
+}
+
+// Target the specific avatar container element.
+// Use the maximum available specificity to force the centering.
+.sidebar-panel .avatar-container {
+  display: block !important;
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+// Target the image itself.
+.avatar-container .avatar-img {
+  display: block !important;
+  margin: 0 auto 10px !important; /* Forces horizontal centering */
+}
+
+// Attempt to center the entire panel contents using flexbox properties
+.sidebar-panel {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important; /* Centers children horizontally */
+  justify-content: center !important;
 }
