@@ -1,0 +1,12 @@
+/* This centers the name, tagline, and bio text (which seems to be working) */
+.sidebar-panel-text {
+  text-align: center !important;
+}
+
+/* Target the avatar container and force center using flexbox */
+.avatar-container {
+  display: flex !important;
+  justify-content: center !important;
+  width: 100% !important;
+  margin-bottom: 10px !important;
+}
