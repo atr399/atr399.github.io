@@ -1,0 +1,18 @@
+---
+---
+
+// This centers the name, tagline, and bio text inside the sidebar
+.sidebar-panel-text {
+  text-align: center;
+}
+
+// This ensures the avatar container and image are centered
+.avatar-container {
+  display: block;
+  text-align: center;
+}
+
+.avatar-img {
+  margin-left: auto;
+  margin-right: auto;
+}
