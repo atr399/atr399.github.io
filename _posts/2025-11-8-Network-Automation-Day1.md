@@ -1656,3 +1656,36 @@ You've completed Day 1! You now have:
 *Last Updated: November 2025*  
 *Created for: atr399*  
 *Repository: network-automation-journey*
+
+
+# NOTES FOR DAY1
+
+## TO STOP
+
+netlab status
+- netlab down
+
+docker ps
+- docker stop f3c742f98caa 58f510de1b4d 12d6096bcaf5 6990ee4c96ff 93d2c09ff5c5
+
+deactivate
+
+find . -type f -name "docker-compose.yml" 2>/dev/null
+
+
+## TO START
+
+source final-stable/bin/activate
+
+# Navigate to the folder with the YAML file
+cd /home/atr399/netdevops-automation/netbox-compose/
+
+# Start Netbox and Batfish
+cd netdevops-automation/docker/netbox/
+docker-compose up -d
+
+cd ../batfish/
+docker-compose up -d
+
+cd ../../labs/lab-001-foundation/ 
+sudo netlab up
