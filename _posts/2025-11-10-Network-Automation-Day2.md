@@ -1,6 +1,6 @@
 ---
 title: "Network-Automation-Day1"
-date: 2025-11-10 e.g., 2025-11-01 10:00:00 +0800
+date: 2025-11-9 e.g., 2025-11-01 10:00:00 +0800
 categories: [netdevops, lab]
 tags: [network-automation, netdevops, lab-setup, python, paramiko, netmiko, netbox, batfish, netlab, ospf, configuration-management]
 ---
